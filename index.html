@@ -23,10 +23,7 @@
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=l4yFiU"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=l4yFiU" type="text/css">
 
   <style>
-    .dark-mode {
-            background-color: #333;
-            color: #fff;
-        }
+
   </style>
   
   
@@ -103,19 +100,6 @@
   </div>
 </section>
 
-<section data-bs-version="5.1" class="news09 startm5 cid-u93LT22uvJ" id="news09-0">
-  <div class="container">
-      <div class="col-12 mb-5 content-head">
-          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-              <strong>Що нового?</strong></h3>
-      </div>
-      <section class="features-without-image cid-sH30u6f8yY" id="features16-2t">
-          <div id="workshopContainer">
-              <!-- Здесь будут отображаться данные -->
-          </div>
-      </section>
-  </div>
-</section>
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
   // Функция загрузки Google API
@@ -133,8 +117,8 @@
                 discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
             }).then(function() {
                 return gapi.client.sheets.spreadsheets.values.get({
-                    spreadsheetId: '1ntnrgOWP2ObOQWHlKhBnBUZH8tbYmj-8PCMS2CbOynw',
-                    range: 'Sheet1!A1:B999', // Измените диапазон данных по вашему усмотрению
+                    spreadsheetId: '16WFUSnwrOsUBCzMx7k2hiFmHIanuBGDJM1NZdIVQdIo',
+                    range: 'Sheet1!A1:D100', // Измените диапазон данных по вашему усмотрению
                 });
             }).then(function(response) {
                 var data = response.result.values;
@@ -144,8 +128,10 @@
 
                 if (data && data.length > 0) {
                     data.forEach(row => {
+                        const name = row[0];
                         const date = row[1];
-                        const money = row[0];
+                        const money = row[2];
+                        const notes = row[3];
 
                         const workshopElement = document.createElement('div');
                         workshopElement.classList.add('item', 'features-without-image', 'col-12', 'active');
@@ -164,6 +150,7 @@
                                         <p class="mbr-tag mbr-fonts-style display-7">${money}<br></p>
                                     </div>
                                 </div>
+                                <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">${notes}</h6>
                             </div>
                         `;
 
