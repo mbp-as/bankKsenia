@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html  >
 <head>
+  <!-- Site made with Mobirise Website Builder v5.9.13, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.13, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/masterpiece-a-tree-cartoon-emo.jpeg" type="image/x-icon">
   <meta name="description" content="">
-
+  
+  
   <title>Main</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
@@ -17,8 +20,7 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=l4yFiU">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=l4yFiU" type="text/css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=32PWlT"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=32PWlT" type="text/css">
 </head>
 <body>
 
@@ -99,7 +101,7 @@
       <div class="mbr-section-head">
         <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Выписка:</strong></h3>
       </div>
-      <div class="timelines-container mt-4 text-center" id="timelineContainer">
+      <div class="timelines-container mt-4 text-center" id="workshopElement">
         <!-- Здесь будут отображаться данные -->
       </div>
       <div id="workshopContainer"></div>
@@ -139,23 +141,25 @@
                 const notes = row[3];
 
                 const workshopElement = document.createElement('div');
-                workshopElement.classList.add('item', 'features-without-image', 'col-12', 'active');
+                workshopElement.classList.add('col-12', 'col-lg-10', 'mb-5');
                 workshopElement.innerHTML = `
-                    <div class="item-wrapper">
-                        <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>${name}</strong></h5>
-                        <div class="details">
-                            <div class="details-item display-7">
-                                <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri details-icon"></span>
-                                <p class="mbr-tag mbr-fonts-style display-7">${date}<br></p>
+                    <div class="item features-without-image col-12 active">
+                        <div class="item-wrapper">
+                            <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>${name}</strong></h5>
+                            <div class="details">
+                                <div class="details-item display-7">
+                                    <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri details-icon"></span>
+                                    <p class="mbr-tag mbr-fonts-style display-7">${date}<br></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="details">
-                            <div class="details-item display-7">
-                                <span class="mbr-iconfont details-icon mobi-mbri-cash mobi-mbri"></span>
-                                <p class="mbr-tag mbr-fonts-style display-7">${money}<br></p>
+                            <div class="details">
+                                <div class="details-item display-7">
+                                    <span class="mbr-iconfont details-icon mobi-mbri-cash mobi-mbri"></span>
+                                    <p class="mbr-tag mbr-fonts-style display-7">${money}<br></p>
+                                </div>
                             </div>
+                            <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">${notes}</h6>
                         </div>
-                        <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">${notes}</h6>
                     </div>
                 `;
 
@@ -167,10 +171,12 @@
         } else {
             console.error('Данные не найдены или пусты');
         }
-    }, function(reason) {
-        console.error('Проблемы с данными:', reason);
+    }).catch(function(error) {
+        console.error('Проблемы с данными:', error);
     });
 }
+
+document.addEventListener('DOMContentLoaded', loadGoogleAPI);
 
 gapi.load('client', { 'callback': loadData, 'onerror': function() { console.error('Failed to load Google API client'); } });
   </script>
