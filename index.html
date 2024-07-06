@@ -147,22 +147,23 @@
     <div class="item-wrapper">
         <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5"><strong>${name}</strong></h5>
         <div class="details">
-            <div class="details-item display-7">
+            <div class="details-item display-7" style="margin-top: 5px;">
                 <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri details-icon" style="margin-right: 5px;"></span>
                 <span class="mbr-tag mbr-fonts-style display-7">${date}</span>
             </div>
-            <div class="details-item display-7">
-                <span class="mbr-iconfont details-icon mobi-mbri-cash mobi-mbri" style="margin-right: 5px;"></span>
+            <div class="details-item display-7" style="margin-top: 5px; margin-bottom: 5px;">
+                <span class="mbr-iconfont details-icon mobi-mbri-cash mobi-mbri" style="margin-right: 5px; "></span>
                 <span class="mbr-tag mbr-fonts-style display-7">${money}</span>
             </div>
-        </div>
-        <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">${notes}</h6>
+        </div style="margin-top: 5px;">
+        <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7" >${notes}</h6>
     </div>
 </div>
 
                 `;
 
                 workshopElement.style.backgroundColor = 'rgba(255,255,255,255)';
+                workshopElement.style.padding = '10px';
                 workshopElement.style.padding = '10px';
 
                 timelineContainer.appendChild(workshopElement);
