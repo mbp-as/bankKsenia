@@ -16,7 +16,10 @@
 </head>
 <body>
     <div id="data-container">
-        <p>Загрузка...</p>
+        <!-- Содержимое обновится после загрузки данных -->
+        <p><strong>Осталось отложить:</strong> <span id="ostalos">Loading...</span></p>
+        <p><strong>Отложено:</strong> <span id="otlogeno">Loading...</span></p>
+        <p><strong>Дата:</strong> <span id="date">Loading...</span></p>
     </div>
 
     <script>
@@ -45,15 +48,16 @@
                 const date = record.date || 'No date available';
                 
                 // Display data on the page
-                document.getElementById('data-container').innerHTML = `
-                    <p><strong>Осталось отложить:</strong> ${ostalos}</p>
-                    <p><strong>Отложено:</strong> ${otlogeno}</p>
-                    <p><strong>Дата:</strong> ${date}</p>
-                `;
+                document.getElementById('ostalos').textContent = ostalos;
+                document.getElementById('otlogeno').textContent = otlogeno;
+                document.getElementById('date').textContent = date;
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
-                document.getElementById('data-container').innerHTML = '<p>Error loading data.</p>';
+                // Show an error message if data fails to load
+                document.getElementById('ostalos').textContent = 'Error loading data.';
+                document.getElementById('otlogeno').textContent = 'Error loading data.';
+                document.getElementById('date').textContent = 'Error loading data.';
             });
     </script>
 </body>
